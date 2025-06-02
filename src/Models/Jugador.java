@@ -2,7 +2,8 @@ package Models;
 
 import java.util.Date;
 
-public class Jugador {
+public class Jugador implements Comparable<Jugador> {
+
     private String nombre;
     private String apellido;
     private Date fechaNacimiento;
@@ -59,4 +60,10 @@ public class Jugador {
     public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
+
+    @Override
+    public int compareTo(Jugador o) {
+        return this.nombre.compareTo(o.getNombre());
+    }
+
 }
