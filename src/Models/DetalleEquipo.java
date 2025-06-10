@@ -80,6 +80,10 @@ public class DetalleEquipo implements Comparable<DetalleEquipo>{
         this.equipo = equipo;
     }
 
+    public int getDiferenciaPuntos() {
+        return this.puntosAfavor - this.puntosEnContra;
+    }
+
     @Override
     public int compareTo(DetalleEquipo o) {
         return 0;
