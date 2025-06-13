@@ -40,39 +40,39 @@ public class DetalleEquipo implements Comparable<DetalleEquipo>{
         this.puntosAfavor = puntosAfavor;
     }
 
-    public int getDerrotas() {
+    public int getDerrotas(){
         return derrotas;
     }
 
-    public void setDerrotas(int derrotas) {
+    public void setDerrotas(int derrotas){
         this.derrotas = derrotas;
     }
 
-    public int getVictorias() {
+    public int getVictorias(){
         return victorias;
     }
 
-    public void setVictorias(int victorias) {
+    public void setVictorias(int victorias){
         this.victorias = victorias;
     }
 
-    public int getPuntos() {
+    public int getPuntos(){
         return puntos;
     }
 
-    public void setPuntos(int puntos) {
+    public void setPuntos(int puntos){
         this.puntos = puntos;
     }
 
-    public HashSet<Partido> getPartidos() {
+    public HashSet<Partido> getPartidos(){
         return partidos;
     }
 
-    public void setPartidos(HashSet<Partido> partidos) {
+    public void setPartidos(HashSet<Partido> partidos){
         this.partidos = partidos;
     }
 
-    public Equipo getEquipo() {
+    public Equipo getEquipo(){
         return equipo;
     }
 
