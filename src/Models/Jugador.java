@@ -1,3 +1,4 @@
+
 package Models;
 
 import java.util.Date;
@@ -5,19 +6,22 @@ import java.util.Date;
 public class Jugador {
     private String nombre;
     private String apellido;
-    private Date fechaNacimiento;
+    private String fechaNacimiento;
     private int dni;
     private Posicion posicion;
 
+
     public Jugador() {
     }
-
-    public Jugador(String nombre, Posicion posicion, int dni, String apellido, Date fechaNacimiento) {
+    public Jugador(String nombre, String apellido, int dni, String fechaNacimiento) {
         this.nombre = nombre;
-        this.posicion = posicion;
+
         this.dni = dni;
         this.apellido = apellido;
         this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public Jugador(String nombre, String posicion) {
     }
 
     public String getNombre() {
@@ -28,13 +32,7 @@ public class Jugador {
         this.nombre = nombre;
     }
 
-    public Posicion getPosicion() {
-        return posicion;
-    }
 
-    public void setPosicion(Posicion posicion) {
-        this.posicion = posicion;
-    }
 
     public int getDni() {
         return dni;
@@ -52,11 +50,22 @@ public class Jugador {
         this.apellido = apellido;
     }
 
-    public Date getFechaNacimiento() {
+    public String getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(Date fechaNacimiento) {
+    public void setFechaNacimiento(String fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
+
+    @Override
+    public String toString() {
+        return "Jugador{" +
+                "nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", fechaNacimiento=" + fechaNacimiento +
+                ", dni=" + dni +
+                '}';
+    }
 }
+
