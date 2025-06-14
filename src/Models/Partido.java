@@ -57,6 +57,7 @@ public class Partido implements Comparable<Partido> {
     public void setFecha(int fecha) {
         this.fecha = fecha;
     }
+
     public String getGanador(int puntosVisitante,int puntosLocal){
         if (puntosVisitante>puntosLocal){
             return "Gano el equipo visitante";
