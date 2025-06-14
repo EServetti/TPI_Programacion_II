@@ -3,7 +3,8 @@ package Models;
 
 import java.util.Date;
 
-public class Jugador {
+public class Jugador implements Comparable<Jugador> {
+
     private String nombre;
     private String apellido;
     private String fechaNacimiento;
@@ -59,6 +60,7 @@ public class Jugador {
     }
 
     @Override
+<<<<<<< HEAD
     public String toString() {
         return "Jugador{" +
                 "nombre='" + nombre + '\'' +
@@ -67,5 +69,11 @@ public class Jugador {
                 ", dni=" + dni +
                 '}';
     }
+=======
+    public int compareTo(Jugador o) {
+        return this.apellido.compareTo(o.getApellido());
+    }
+
+>>>>>>> 3347a0f3e7087321f080608708f2ac1596aed700
 }
 
