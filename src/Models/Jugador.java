@@ -1,79 +1,62 @@
-
 package Models;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Jugador implements Comparable<Jugador> {
 
     private String nombre;
     private String apellido;
-    private String fechaNacimiento;
+    private Date fechaNacimiento;
     private int dni;
-    private Posicion posicion;
+    private int posicion;
 
+    public Jugador() {}
 
-    public Jugador() {
-    }
-    public Jugador(String nombre, String apellido, int dni, String fechaNacimiento) {
+    public Jugador(String nombre, String apellido, int dni, Date fechaNacimiento, int posicion) {
         this.nombre = nombre;
-
-        this.dni = dni;
         this.apellido = apellido;
-        this.fechaNacimiento = fechaNacimiento;
-    }
-
-    public Jugador(String nombre, String posicion) {
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-
-
-    public int getDni() {
-        return dni;
-    }
-
-    public void setDni(int dni) {
         this.dni = dni;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public String getFechaNacimiento() {
-        return fechaNacimiento;
-    }
-
-    public void setFechaNacimiento(String fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
+        this.posicion = posicion;
     }
+
+    public String getNombre() { return nombre; }
+
+    public void setNombre(String nombre) { this.nombre = nombre; }
+
+    public String getApellido() { return apellido; }
+
+    public void setApellido(String apellido) { this.apellido = apellido; }
+
+    public Date getFechaNacimiento() { return fechaNacimiento; }
+
+    public void setFechaNacimiento(Date fechaNacimiento) { this.fechaNacimiento = fechaNacimiento; }
+
+    public int getDni() { return dni; }
+
+    public void setDni(int dni) { this.dni = dni; }
+
+    public int getPosicion() { return posicion; }
+
+    public void setPosicion(int posicion) { this.posicion = posicion; }
 
     @Override
-<<<<<<< HEAD
     public String toString() {
         return "Jugador{" +
                 "nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
                 ", fechaNacimiento=" + fechaNacimiento +
                 ", dni=" + dni +
+                ", posicion=" + posicion +
                 '}';
     }
-=======
+
+    @Override
     public int compareTo(Jugador o) {
-        return this.apellido.compareTo(o.getApellido());
+        if (this.apellido == null && o.apellido == null) return 0;
+        if (this.apellido == null) return -1;
+        if (o.apellido == null) return 1;
+        return this.apellido.compareTo(o.apellido);
     }
-
->>>>>>> 3347a0f3e7087321f080608708f2ac1596aed700
 }
-

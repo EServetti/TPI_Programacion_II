@@ -3,15 +3,33 @@ import java.util.Set;
 import java.util.TreeSet;
 
 public class TablaDePosiciones{
-    private Set<DetalleEquipo> tabla;
-    public TablaDePosiciones(){
-        tabla = new TreeSet<>();
+    private TreeSet<DetalleEquipo> tabla;
+
+    public TablaDePosiciones(TreeSet<DetalleEquipo> tabla) {
+        this.tabla = tabla;
     }
+
     public void agregarDetalleEquipo(DetalleEquipo detalle){
         tabla.add(detalle);
     }
-    public void actualizarTabla(){
+
+    public void actualizarDetalleEquipo(DetalleEquipo nuevoDetalle) {
+        DetalleEquipo detalleExistente = null;
+        tabla.removeIf(d -> d.getEquipo().getNombre().equals(nuevoDetalle.getEquipo().getNombre()));
+        tabla.add(nuevoDetalle);
     }
+
+
+    public DetalleEquipo getDetalleEquipo (Equipo e) {
+        DetalleEquipo exists = null;
+        for (DetalleEquipo de : this.tabla) {
+            if (de.getEquipo() == e) {
+                exists = de;
+            }
+        }
+        return exists;
+    }
+
     public void mostrarTabla(){
         System.out.println("---- Tabla de Posiciones ----");
         System.out.println("Pos | Equipo           | Pts | PG | PP | Dif");
@@ -28,6 +46,6 @@ public class TablaDePosiciones{
         }
     }
     public Set<DetalleEquipo> getTablaOrdenada(){
-        return new TreeSet<>(tabla);
+        return tabla;
     }
 }

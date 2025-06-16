@@ -1,9 +1,10 @@
 package View;
 import Models.*;
-public class PartidoView {
 
-    public PartidoView() {
-    }
+import java.util.Scanner;
+
+public class PartidoView {
+    Scanner sc = new Scanner(System.in);
 
     public void mostrarPartido(Partido partido) {
         System.out.println("Fecha del partido: " + partido.getFecha());
@@ -14,5 +15,14 @@ public class PartidoView {
         System.out.println("Resultado: " + partido.getResultado(puntosVisitante, puntosLocal));
         System.out.println("Ganador: " + partido.getGanador(puntosVisitante, puntosLocal));
         System.out.println("Diferencia de puntos: " + partido.getDiferenciaPuntos(puntosLocal, puntosVisitante));
+    }
+
+    public void partidoGuardado () {
+        System.out.println("El partido fue guardado");
+    }
+
+    public int pedirInt (String message) {
+        System.out.println(message);
+        return sc.nextInt();
     }
 }

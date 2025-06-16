@@ -1,10 +1,7 @@
 package Models;
 
-import java.util.HashSet;
-
-public class DetalleEquipo implements Comparable<DetalleEquipo>{
+public class DetalleEquipo implements Comparable<DetalleEquipo> {
     private Equipo equipo;
-    private HashSet<Partido> partidos;
     private int puntos;
     private int victorias;
     private int derrotas;
@@ -14,14 +11,13 @@ public class DetalleEquipo implements Comparable<DetalleEquipo>{
     public DetalleEquipo() {
     }
 
-    public DetalleEquipo(Equipo equipo, int puntosEnContra, int puntosAfavor, int derrotas, int victorias, int puntos, HashSet<Partido> partidos) {
+    public DetalleEquipo(Equipo equipo) {
         this.equipo = equipo;
-        this.puntosEnContra = puntosEnContra;
-        this.puntosAfavor = puntosAfavor;
-        this.derrotas = derrotas;
-        this.victorias = victorias;
-        this.puntos = puntos;
-        this.partidos = partidos;
+        this.puntosEnContra = 0;
+        this.puntosAfavor = 0;
+        this.derrotas = 0;
+        this.victorias = 0;
+        this.puntos = 0;
     }
 
     public int getPuntosEnContra() {
@@ -40,39 +36,31 @@ public class DetalleEquipo implements Comparable<DetalleEquipo>{
         this.puntosAfavor = puntosAfavor;
     }
 
-    public int getDerrotas(){
+    public int getDerrotas() {
         return derrotas;
     }
 
-    public void setDerrotas(int derrotas){
+    public void setDerrotas(int derrotas) {
         this.derrotas = derrotas;
     }
 
-    public int getVictorias(){
+    public int getVictorias() {
         return victorias;
     }
 
-    public void setVictorias(int victorias){
+    public void setVictorias(int victorias) {
         this.victorias = victorias;
     }
 
-    public int getPuntos(){
+    public int getPuntos() {
         return puntos;
     }
 
-    public void setPuntos(int puntos){
+    public void setPuntos(int puntos) {
         this.puntos = puntos;
     }
 
-    public HashSet<Partido> getPartidos(){
-        return partidos;
-    }
-
-    public void setPartidos(HashSet<Partido> partidos){
-        this.partidos = partidos;
-    }
-
-    public Equipo getEquipo(){
+    public Equipo getEquipo() {
         return equipo;
     }
 
@@ -84,8 +72,27 @@ public class DetalleEquipo implements Comparable<DetalleEquipo>{
         return this.puntosAfavor - this.puntosEnContra;
     }
 
+    // Orden por puntos DESC, y si empatan, por nombre ASC
     @Override
     public int compareTo(DetalleEquipo o) {
-        return 0;
+        int cmp = Integer.compare(o.puntos, this.puntos);
+        if (cmp == 0) {
+            return this.equipo.getNombre().compareTo(o.equipo.getNombre());
+        }
+        return cmp;
+    }
+
+    // Dos DetalleEquipo son iguales si el equipo es el mismo
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof DetalleEquipo)) return false;
+        DetalleEquipo other = (DetalleEquipo) o;
+        return this.equipo.getNombre().equals(other.equipo.getNombre());
+    }
+
+    @Override
+    public int hashCode() {
+        return equipo.getNombre().hashCode();
     }
 }

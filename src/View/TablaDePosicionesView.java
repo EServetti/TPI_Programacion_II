@@ -20,4 +20,8 @@ public class TablaDePosicionesView {
                     d.getDiferenciaPuntos());
         }
     }
+
+    public void detalleNoEncontrado () {
+        System.out.println("El detalle de equipo con ese equipo no fue encontrado");
+    }
 }
